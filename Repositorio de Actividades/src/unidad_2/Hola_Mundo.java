@@ -6,7 +6,6 @@ public class Hola_Mundo {
 	public void act_1 () {
 		
 		System.out.println("Hola Mundo");
-		JOptionPane.showMessageDialog(null, "Hola Jony, como estas");
-		System.out.println("Hola Majo");
+		JOptionPane.showMessageDialog(null, "Hola Jony, como estas?");
 	}
 }
