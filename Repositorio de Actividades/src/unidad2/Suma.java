@@ -7,7 +7,7 @@ public class Suma {
 		
 		int suma = 0;
 		for(int i = 1; i <=100; i++) {
-			suma += i;
+			suma+= i;
 		}
 		
 		JOptionPane.showMessageDialog(null, "La suma de 100 números es " + suma);
