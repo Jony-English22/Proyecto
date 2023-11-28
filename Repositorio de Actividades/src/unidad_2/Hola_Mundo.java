@@ -7,5 +7,6 @@ public class Hola_Mundo {
 		
 		System.out.println("Hola Mundo");
 		JOptionPane.showMessageDialog(null, "Hola Jony, como estas");
+		System.out.println("Hola Majo");
 	}
 }
