@@ -1,4 +1,4 @@
-package unidad_2;
+package unidad2;
 
 public class Cuadrado {
 	

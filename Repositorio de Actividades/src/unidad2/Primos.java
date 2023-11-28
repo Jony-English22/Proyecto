@@ -1,4 +1,4 @@
-package unidad_2;
+package unidad2;
 import javax.swing.JOptionPane;
 
 public class Primos {
