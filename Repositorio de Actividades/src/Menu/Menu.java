@@ -13,8 +13,8 @@ public class Menu {
     jComboBox.setBounds(80, 50, 140, 20);
 
     JButton jButton = new JButton("Done");
-    jButton.setBounds(100, 100, 90, 20);
-
+    jButton.setBounds(100, 25, 110, 50);
+    //25 es x, 25 es y, 110 es ancho y 50 es altura
     JLabel jLabel = new JLabel();
     jLabel.setBounds(90, 100, 400, 100);
 
