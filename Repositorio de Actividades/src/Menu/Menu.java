@@ -1,42 +1,4 @@
 package Menu;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.*;
-
-public class Menu {
-  public static void main(String[] args) {
-    String[] opcion = {"Unidad 1", "Unidad 2", "Unidad 3", "Unidad 4"};
-
-    JFrame jFrame = new JFrame();
-
-    JComboBox<String> jComboBox = new JComboBox<>(opcion);
-    jComboBox.setBounds(80, 50, 140, 20);
-
-    JButton jButton = new JButton("Done");
-    jButton.setBounds(100, 25, 110, 50);
-    //25 es x, 25 es y, 110 es ancho y 50 es altura
-    JLabel jLabel = new JLabel();
-    jLabel.setBounds(90, 100, 400, 100);
-
-    jFrame.add(jButton);
-    jFrame.add(jComboBox);
-    jFrame.add(jLabel);
-
-    jFrame.setLayout(null);
-    jFrame.setSize(350, 250);
-    jFrame.setVisible(true);
-
-    jButton.addActionListener(new ActionListener() {
-    
-      public void actionPerformed(ActionEvent e) {
-        String selectedFruit = "You selected " + jComboBox.getItemAt(jComboBox.getSelectedIndex());
-        jLabel.setText(selectedFruit);
-      }
-    });
-  }
-}
-
-package Menu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -45,11 +7,12 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-import Unidad_2.Circulo;
 import Unidad_2.Hola_Mundo;
+import Unidad_2.Nombre;
+import Unidad_2.Nombre_Lineas;
+import Unidad_2.Triangulo;
 
 public class Menu extends JFrame {
 
@@ -84,6 +47,22 @@ public class Menu extends JFrame {
       JMenuItem menuItem11 = new JMenuItem("Suma de 100 numeros");
       JMenuItem menuItem12 = new JMenuItem("Numeros perfectos");
 
+      JMenu menuUnidad3 = new JMenu("Unidad 3");
+      menuBar.add(menuUnidad3);
+
+      JMenuItem menuItem13 = new JMenuItem("Area Triangulo");
+      JMenuItem menuItem14 = new JMenuItem("Area Cuadrado");
+      JMenuItem menuItem15 = new JMenuItem("Area Rombo");
+      JMenuItem menuItem16 = new JMenuItem("Area Trapecio");
+      JMenuItem menuItem17 = new JMenuItem("Area Circulo");
+      JMenuItem menuItem18 = new JMenuItem("Par-Impar");
+      JMenuItem menuItem19 = new JMenuItem("Numeros Primos");
+      JMenuItem menuItem20 = new JMenuItem("Suma de 100 numeros");
+      JMenuItem menuItem21 = new JMenuItem("Numeros perfectos");
+
+      JMenu menuUnidad4 = new JMenu("Unidad 4");
+      menuBar.add(menuUnidad4);
+
       menuUnidad1.add(menuItem0);
       menuUnidad2.add(menuItem1);
       menuUnidad2.add(menuItem2);
@@ -97,54 +76,23 @@ public class Menu extends JFrame {
       menuUnidad2.add(menuItem10);
       menuUnidad2.add(menuItem11);
       menuUnidad2.add(menuItem12);
+      menuUnidad3.add(menuItem13);
+      menuUnidad3.add(menuItem14);
+      menuUnidad3.add(menuItem15);
+      menuUnidad3.add(menuItem16);
+      menuUnidad3.add(menuItem17);
+      menuUnidad3.add(menuItem18);
+      menuUnidad3.add(menuItem19);
+      menuUnidad3.add(menuItem20);
+      menuUnidad3.add(menuItem21);
       getContentPane().setLayout(null);
 
-      // Lista de temas para cada unidad (puedes personalizarla según tus necesidades)
-      String[] temasUnidad1 = { "Hola Mundo", "Nombre en una linea", "Nombre en diferentes lineas", "Triangulo",
-            "Cuadrado", "Rombo", "Trapecio", "Circulo", "Par-Impar", "Numeros Primos", "Suma de 100 numeros",
-            "Perfectos" };
-      String[] temasUnidad2 = { "Estructuras de Control", "Arreglos", "Funciones" };
-      String[] temasUnidad3 = { "POO", "Excepciones", "Archivos" };
-      String[] temasUnidad4 = { "APIs", "Interfaz gráfica", "Proyecto final" };
-
-      // ActionListener para las opciones del menú
       ActionListener unidadListener = new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
             // Acciones al seleccionar una unidad del menú
             String unidadSeleccionada = ((JMenuItem) e.getSource()).getText();
-
-            // Determinar la lista de temas según la unidad seleccionada
-            String[] temas = {};
-            switch (unidadSeleccionada) {
-            case "Unidad 1":
-               temas = temasUnidad1;
-               break;
-            case "Unidad 2":
-               temas = temasUnidad2;
-               break;
-            case "Unidad 3":
-               temas = temasUnidad3;
-               break;
-            case "Unidad 4":
-               temas = temasUnidad4;
-               break;
-            }
-
-            // Mostrar la lista de temas en un cuadro de diálogo
-            String temaSeleccionado = (String) JOptionPane.showInputDialog(Menu.this, "Selecciona un tema:", "Temas",
-                  JOptionPane.PLAIN_MESSAGE, null, temas, temas[0]);
-
-            switch (temaSeleccionado) {
-            case "Hola Mundo":
-               Hola_Mundo holaMundo = new Hola_Mundo();
-               holaMundo.act_1();
-               break;
-            case "Circulo":
-               Circulo circulo = new Circulo();
-               circulo.act_8();
-               break;
-            }
+            manejarUnidadSeleccionada(unidadSeleccionada);
          }
       };
 
@@ -164,6 +112,27 @@ public class Menu extends JFrame {
 
       // Hacer visible el JFrame
       setVisible(true);
+   }
+
+   private void manejarUnidadSeleccionada(String unidadSeleccionada) {
+      switch (unidadSeleccionada) {
+      case "Hola Mundo":
+         Hola_Mundo holaMundo = new Hola_Mundo();
+         holaMundo.act_1();
+         break;
+      case "Nombre en linea":
+         Nombre nombre = new Nombre();
+         nombre.act_2();
+         break;
+      case "Nombre en diferentes lineas":
+         Nombre_Lineas nombreLineas = new Nombre_Lineas();
+         nombreLineas.act_3();
+         break;
+      case "Triangulo":
+         Triangulo triangulo = new Triangulo();
+         triangulo.act_4();
+         break;
+      }
    }
 
    public static void main(String[] args) {
